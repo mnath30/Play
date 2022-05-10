@@ -1,0 +1,66 @@
+@import url("../../styles/style.css");
+
+.mobile-nav {
+  position: fixed;
+  z-index: 4;
+  background-color: var(--white);
+  overflow-y: scroll;
+  height: 100%;
+  -ms-overflow-style: none; /* IE and Edge hiding scrollbar*/
+  scrollbar-width: none; /* Firefox hiding scrollbar*/
+}
+
+/* Hiding sidebar scroll */
+.mobile-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.mobile-nav ul {
+  padding: 0.3rem;
+}
+
+/* Heading */
+.mobile-nav__heading {
+  align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: var(--white);
+  z-index: 4;
+}
+
+/* Hamburger menu */
+.mobile-nav__btn {
+  cursor: pointer;
+  padding: 1.4rem 0 0 1.4rem;
+}
+
+/*Logo and Brand */
+.mobile-nav__logo {
+  width: 2rem;
+  padding: 0.8rem 0 0 1.8rem;
+}
+.mobile-nav__brand {
+  font-size: 1.6rem;
+  padding: 0.8rem 0 0 0.6rem;
+  margin: 0.2rem;
+}
+
+/* Nav Items */
+.mobile-nav__sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem;
+  margin: 0.2rem;
+}
+.mobile-nav__icons {
+  padding-left: 0.8rem;
+}
+.mobile-nav__options {
+  padding-left: 1.8rem;
+  padding-right: 0.2rem;
+}
+
+.mobile-nav__sidebar-item:hover,
+.active {
+  background-color: var(--light-grey);
+}

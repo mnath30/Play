@@ -1,0 +1,13 @@
+@import url("./utils.css");
+@import url("./variables.css");
+
+.secondary__btn {
+  border: 2px solid var(--secondary-btn);
+  background-color: inherit;
+  padding: 0.4rem;
+  margin: 0.4rem;
+  text-align: center;
+  border-radius: 4px;
+  color: var(--secondary-btn);
+  cursor: pointer;
+}
