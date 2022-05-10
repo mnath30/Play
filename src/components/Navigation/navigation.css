@@ -1,0 +1,72 @@
+@import url("../../styles/style.css");
+
+.nav {
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--white);
+  z-index: 1;
+  border-bottom: 2px solid var(--light-grey);
+}
+
+/* Hamburger menu icon */
+.nav__menu {
+  cursor: pointer;
+  width: 3rem;
+  padding: 0.4rem;
+  margin-left: 0.2rem;
+}
+
+/* Logo */
+.nav__logo {
+  max-width: 2rem;
+  margin-left: 0.2rem;
+}
+.img-logo {
+  width: 100%;
+  display: inline-block;
+}
+
+.nav__brand {
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* Search Input */
+.nav__search {
+  border-radius: 5px;
+  flex-grow: 1;
+  border: 2px solid var(--border-grey);
+  margin: 0 2.4rem;
+}
+.nav__search--input {
+  flex-grow: 1;
+  padding: 0.4rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+}
+.nav__search--btn {
+  background: inherit;
+  border: none;
+  margin-left: auto;
+}
+
+.nav__search:focus-within {
+  border: 1px solid var(--secondary-btn);
+}
+
+.secondary__btn-icon {
+  color: var(--secondary-btn);
+  padding: 0.2rem;
+}
+.secondary__btn-login {
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 580px) {
+  .nav__search {
+    display: none;
+  }
+}
