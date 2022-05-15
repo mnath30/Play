@@ -23,7 +23,7 @@ const useFetch = (url) => {
       }
     };
     getData();
-  }, []);
+  }, [url]);
   return { loader, videoData, error };
 };
 
