@@ -1,4 +1,13 @@
 import { v4 as uuid } from "uuid";
+import {
+  thumbnail_1,
+  thumbnail_2,
+  thumbnail_3,
+  thumbnail_4,
+  thumbnail_5,
+  thumbnail_6,
+  thumbnail_7,
+} from "../../asset";
 /**
  * Videos Database can be added here.
  * You can add videos of your wish with different attributes
@@ -13,8 +22,9 @@ export const videos = [
     creator: "Programming with Mosh",
     views: "7,000",
     category: "Programming",
-    thumbnail: "../../asset/thumbnail_1.jpg",
+    thumbnail: thumbnail_1,
     url: "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+    img: "https://i.ytimg.com/vi/W6NZfCO5SIk/hqdefault.jpg?s…j0AgKJDeAE=&rs=AOn4CLB1H7BMolrfu4tnGxYX5DhvQgcXGw",
   },
   {
     _id: uuid(),
@@ -24,8 +34,9 @@ export const videos = [
     creator: "Traversy Media",
     views: "6,500",
     category: "Programming",
-    thumbnail: "../../asset/thumbnail_2.jpg",
+    thumbnail: thumbnail_2,
     url: "https://www.youtube.com/watch?v=hdI2bqOjy3c",
+    img: "https://i.ytimg.com/vi/hdI2bqOjy3c/hqdefault.jpg?s…j0AgKJDeAE=&rs=AOn4CLBeA1oJYWLY4j55jLcTFnfI4RfUgg",
   },
   {
     _id: uuid(),
@@ -35,8 +46,9 @@ export const videos = [
     creator: "Traversy Media",
     views: "500",
     category: "Programming",
-    thumbnail: "../../asset/thumbnail_2.jpg",
+    thumbnail: thumbnail_2,
     url: "https://www.youtube.com/watch?v=rRgD1yVwIvE",
+    img: "https://i.ytimg.com/vi/rRgD1yVwIvE/hq720.jpg?sqp=-…RUAAIhCGAE=&rs=AOn4CLD6oL_NY-kmqa60FYweXSzBO1tS0A",
   },
   {
     _id: uuid(),
@@ -45,8 +57,9 @@ export const videos = [
     creator: "Programming with Mosh",
     views: "4,000",
     category: "Programming",
-    thumbnail: "../../asset/thumbnail_1.jpg",
+    thumbnail: thumbnail_1,
     url: "https://www.youtube.com/watch?v=g1C40tDP0Bk",
+    img: "https://i.ytimg.com/vi/g1C40tDP0Bk/hqdefault.jpg?s…j0AgKJDeAE=&rs=AOn4CLCTzSTXrI2VMToUHGY-mZCjvBDd4w",
   },
   {
     _id: uuid(),
@@ -56,8 +69,9 @@ export const videos = [
     creator: "Neelesh Misra",
     views: "2000",
     category: "Story",
-    thumbnail: "../../asset/thumbnail_3.jpg",
+    thumbnail: thumbnail_3,
     url: "https://www.youtube.com/watch?v=YGLvhoRGW-0&list=PLchqgSDLaRB_7kere6clt84mtsIwbxE_o",
+    img: "https://i.ytimg.com/vi/YGLvhoRGW-0/hqdefault.jpg?s…j0AgKJDeAE=&rs=AOn4CLD2tbhTKVZ07aQ3SvhX6yF24w-A8A",
   },
   {
     _id: uuid(),
@@ -67,8 +81,9 @@ export const videos = [
     creator: "Neelesh Misra",
     views: "2000",
     category: "Story",
-    thumbnail: "../../asset/thumbnail_3.jpg",
+    thumbnail: thumbnail_3,
     url: "https://www.youtube.com/watch?v=G7apFazVBbI&list=PLchqgSDLaRB_7kere6clt84mtsIwbxE_o&index=4",
+    img: "https://i.ytimg.com/vi/G7apFazVBbI/hqdefault.jpg?s…j0AgKJDeAE=&rs=AOn4CLBwBeHOLxLloV6Lo3tkC-PzEQCM_g",
   },
   {
     _id: uuid(),
@@ -78,18 +93,20 @@ export const videos = [
     creator: "Red FM India",
     views: "900",
     category: "Story",
-    thumbnail: "../../asset/thumbnail_4.jpg",
+    thumbnail: thumbnail_4,
     url: "https://www.youtube.com/watch?v=P5rpIGv5hdA",
+    img: "https://i.ytimg.com/vi/P5rpIGv5hdA/hqdefault.jpg?s…j0AgKJDeAE=&rs=AOn4CLB5qqX9q2Kf5j4jSe4IWRacrz20fw",
   },
   {
     _id: uuid(),
     title: "Hakka Noodles Recipe",
     description: "Full recipe for Veg Hakka Noodles",
-    creator: "Your Food Lab",
+    creator: "Chef Ranveer Brar",
     views: "8000",
     category: "Food",
-    thumbnail: "../../asset/thumbnail_5.jpg",
+    thumbnail: thumbnail_7,
     url: "https://www.youtube.com/watch?v=4Q12_scB6AY",
+    img: "https://i.ytimg.com/vi/P0ullgo0Lnw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBkz2WYNt__6vbLzTIxq6AtJQxAtw",
   },
   {
     _id: uuid(),
@@ -98,8 +115,9 @@ export const videos = [
     creator: "Your Food Lab",
     views: "8000",
     category: "Food",
-    thumbnail: "../../asset/thumbnail_5.jpg",
+    thumbnail: thumbnail_5,
     url: "https://www.youtube.com/watch?v=uygb9O-MDPw",
+    img: "https://i.ytimg.com/vi/uygb9O-MDPw/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCCIbe1ZxCe32SDWIPQcXmAVvkIlQ",
   },
   {
     _id: uuid(),
@@ -108,7 +126,8 @@ export const videos = [
     creator: "Pop Songs Official",
     views: "8000",
     category: "Music",
-    thumbnail: "../../asset/thumbnail_6.jpg",
+    thumbnail: thumbnail_6,
     url: "https://www.youtube.com/watch?v=aJOTlE1K90k",
+    img: "https://i.ytimg.com/vi/GhO_9RziLhM/hqdefault.jpg?s…j0AgKJDeAE=&rs=AOn4CLDSjU5duj-9sE5tpgI5laQManPhNQ",
   },
 ];

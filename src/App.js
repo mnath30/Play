@@ -17,19 +17,19 @@ function App() {
       )}
 
       <Navigation setShowMobileNav={setShowMobileNav} />
+
+      <div className="container">
+        <div className="container__sidebar">
+          <Sidebar />
+        </div>
+        <div className="container__main">
+          <Router />
+        </div>
+      </div>
       <div
         onClick={closeMenu}
         className={`content ${showMobileNav ? "mobile-nav__background" : ""}`}
-      >
-        <div className="container">
-          <div className="container__sidebar">
-            <Sidebar />
-          </div>
-          <div className="container__main">
-            <Router />
-          </div>
-        </div>
-      </div>
+      ></div>
     </div>
   );
 }
