@@ -1,0 +1,14 @@
+@import url("../../styles/style.css");
+
+.error__container {
+  justify-content: center;
+  height: 80vh;
+}
+
+.error__container-img {
+  margin: auto;
+  max-width: 14rem;
+}
+.error-img {
+  width: 100%;
+}

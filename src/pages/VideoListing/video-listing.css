@@ -1,0 +1,18 @@
+@import url("../../styles/style.css");
+
+.video__container {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.no-scroll {
+  overflow-y: hidden;
+  /* position: fixed; */
+  /* overflow: auto; */
+}
+
+@media only screen and (max-width: 940px) {
+  .video__container {
+    justify-content: space-evenly;
+  }
+}

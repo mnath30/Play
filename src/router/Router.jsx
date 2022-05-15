@@ -8,6 +8,7 @@ import {
   Signup,
   Login,
   Logout,
+  PageNotFound,
 } from "../pages";
 
 const Router = () => {
@@ -21,6 +22,7 @@ const Router = () => {
       <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

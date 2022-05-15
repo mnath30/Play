@@ -1,0 +1,16 @@
+@import url("../../styles/style.css");
+
+.not-found-page {
+  height: 80vh;
+  justify-content: center;
+}
+.not-found-page-img-container {
+  max-width: 20rem;
+  margin: auto;
+}
+.not-found-img {
+  width: 100%;
+}
+.link {
+  text-decoration: underline;
+}
