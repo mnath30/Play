@@ -16,7 +16,7 @@ const VideoListing = () => {
   return (
     <div className={`flex video__container {showMobileNav? "no-scroll":""}`}>
       {loader && <Loader />}
-      {allVideos !== [] &&
+      {allVideoslength !== 0 &&
         allVideos.map((item) => <VideoCard videoDetails={item} />)}
       {error && <Error message="There was some error in fetching the videos" />}
     </div>
