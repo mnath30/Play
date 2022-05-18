@@ -1,6 +1,10 @@
 import "./navigation.css";
+import { Link } from "react-router-dom";
+import { useAuth } from "../../context";
 
 const Navigation = ({ setShowMobileNav }) => {
+  const { authState } = useAuth();
+  const { isLoggedIn } = authState;
   return (
     <nav className="flex nav">
       <span
@@ -26,9 +30,20 @@ const Navigation = ({ setShowMobileNav }) => {
         </button>
       </span>
       <span className="padding-sm secondary__btn-login">
-        <button className="secondary__btn ">
-          <i className="fa-regular fa-user secondary__btn-icon"></i>SIGN IN
-        </button>
+        {isLoggedIn ? (
+          <Link to="/logout">
+            <button className="secondary__btn ">
+              <i className="fa-regular fa-user secondary__btn-icon"></i>LOG OUT
+            </button>
+          </Link>
+        ) : (
+          <Link to="/login">
+            {" "}
+            <button className="secondary__btn ">
+              <i className="fa-regular fa-user secondary__btn-icon"></i>SIGN IN
+            </button>
+          </Link>
+        )}
       </span>
     </nav>
   );

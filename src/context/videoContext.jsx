@@ -3,8 +3,8 @@ import { useReducer } from "react";
 import { videoReducer } from "../reducer";
 import { initialVideoState } from "../helper";
 
-const VideoContext = createContext({});
-const useVideos = () => useContext(VideoContext);
+const videoContext = createContext({});
+const useVideos = () => useContext(videoContext);
 
 const VideoProvider = ({ children }) => {
   const [videoState, videoDispatch] = useReducer(
@@ -12,9 +12,9 @@ const VideoProvider = ({ children }) => {
     initialVideoState
   );
   return (
-    <VideoContext.Provider value={{ videoState, videoDispatch }}>
+    <videoContext.Provider value={{ videoState, videoDispatch }}>
       {children}
-    </VideoContext.Provider>
+    </videoContext.Provider>
   );
 };
 
