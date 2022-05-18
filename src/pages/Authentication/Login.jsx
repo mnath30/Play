@@ -1,7 +1,7 @@
 import "./authentication.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { fetchLoginDetails } from "../../services/fetchAuth";
+import { login } from "../../services";
 import { useAuth } from "../../context";
 import { LOADING, LOGIN, ERROR } from "../../helper/constants";
 import { Loader } from "../../components";
@@ -23,13 +23,10 @@ const Login = () => {
     e.preventDefault();
     if (email && password) {
       authDispatch({ type: LOADING });
-      const responseData = await fetchLoginDetails(
-        {
-          email: email,
-          password: password,
-        },
-        true
-      );
+      const responseData = await login({
+        email: email,
+        password: password,
+      });
       const { token, username, error } = responseData;
       if (error) {
         authDispatch({

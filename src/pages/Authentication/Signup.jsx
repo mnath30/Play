@@ -1,7 +1,7 @@
 import "./authentication.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { fetchLoginDetails } from "../../services/fetchAuth";
+import { signup } from "../../services";
 import { useAuth } from "../../context";
 import { LOADING, SIGNUP, ERROR } from "../../helper/constants";
 import { Loader } from "../../components";
@@ -22,7 +22,7 @@ const Signup = () => {
       const firstName = userNamearr[0];
       const lastName = userNamearr.slice(1).join(" ") || "";
       authDispatch({ type: LOADING });
-      const responseData = await fetchLoginDetails({
+      const responseData = await signup({
         email: email,
         password: password,
         firstName: firstName,

@@ -38,7 +38,6 @@ const Navigation = ({ setShowMobileNav }) => {
           </Link>
         ) : (
           <Link to="/login">
-            {" "}
             <button className="secondary__btn ">
               <i className="fa-regular fa-user secondary__btn-icon"></i>SIGN IN
             </button>
