@@ -10,18 +10,42 @@ import {
   Logout,
   PageNotFound,
 } from "../pages";
+import { RequiresAuth } from "../helper";
+import Mockman from "mockman-js";
 
 const Router = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/history" element={<History />} />
-      <Route path="/likedvideos" element={<LikedVideos />} />
+      <Route
+        path="/history"
+        element={
+          <RequiresAuth>
+            <History />
+          </RequiresAuth>
+        }
+      />
+      <Route
+        path="/likedvideos"
+        element={
+          <RequiresAuth>
+            <LikedVideos />
+          </RequiresAuth>
+        }
+      />
       <Route path="/explore" element={<VideoListing />} />
-      <Route path="/watchlater" element={<WatchLater />} />
+      <Route
+        path="/watchlater"
+        element={
+          <RequiresAuth>
+            <WatchLater />
+          </RequiresAuth>
+        }
+      />
       <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/mock" element={<Mockman />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
