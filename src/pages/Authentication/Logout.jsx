@@ -3,15 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { LOGOUT, LOADING } from "../../helper/constants";
 import { useAuth } from "../../context/authContext";
 import { Loader } from "../../components";
+import { useVideos } from "../../context";
 
 const Logout = () => {
   const { authState, authDispatch } = useAuth();
+  const { videoDispatch } = useVideos();
   const { loading } = authState;
   const navigate = useNavigate();
   const clearLoginDetails = () => {
     authDispatch({ type: LOADING });
     setTimeout(() => {
       authDispatch({ type: LOGOUT });
+      videoDispatch({ type: LOGOUT });
       localStorage.removeItem("encodedToken");
       localStorage.removeItem("user");
       navigate("/");

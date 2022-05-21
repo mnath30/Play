@@ -57,10 +57,6 @@
   border: 1px solid var(--secondary-btn);
 }
 
-.secondary__btn-icon {
-  color: var(--secondary-btn);
-  padding: 0.2rem;
-}
 .secondary__btn-login {
   margin-left: auto;
 }

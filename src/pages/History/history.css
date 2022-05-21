@@ -1,0 +1,14 @@
+@import url("../../styles/style.css");
+
+.history__container {
+  align-items: center;
+  margin: 0.8rem;
+}
+
+.history__header {
+  font-size: 1rem;
+  align-items: center;
+}
+.history__container-title {
+  margin: 1.8rem;
+}

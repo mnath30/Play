@@ -4,3 +4,6 @@ export const LOGOUT = "LOGOUT";
 export const SIGNUP = "SIGNUP";
 export const LOADING = "LOADING";
 export const ERROR = "ERROR";
+export const DISPLAY_VIDEO = "DISPLAY_VIDEO";
+export const UPDATE_HISTORY = "UPDATE_HISTORY";
+export const DELETE_HISTORY = "DELETE_HISTORY";
