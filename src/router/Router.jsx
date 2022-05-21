@@ -9,6 +9,7 @@ import {
   Login,
   Logout,
   PageNotFound,
+  SingleVideo,
 } from "../pages";
 import { RequiresAuth } from "../helper";
 import Mockman from "mockman-js";
@@ -34,6 +35,7 @@ const Router = () => {
         }
       />
       <Route path="/explore" element={<VideoListing />} />
+      <Route path="/explore/:videoId" element={<SingleVideo />} />
       <Route
         path="/watchlater"
         element={

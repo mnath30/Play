@@ -7,8 +7,6 @@
 
 .no-scroll {
   overflow-y: hidden;
-  /* position: fixed; */
-  /* overflow: auto; */
 }
 
 @media only screen and (max-width: 940px) {

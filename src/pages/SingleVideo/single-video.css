@@ -1,0 +1,37 @@
+@import url("../../styles/style.css");
+
+.video__container {
+  justify-content: center;
+}
+.single-video__container {
+  flex: 2;
+  margin: 0.8rem;
+  width: 36rem;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+.related-video__container {
+  flex: 1;
+}
+.single-video__description {
+  text-align: left;
+}
+.single-video__title {
+  text-align: left;
+}
+.single-video__info {
+  align-items: center;
+}
+
+@media only screen and (max-width: 900px) {
+  .video__container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .single-video__container {
+    flex: 1;
+  }
+  .related-video__container {
+    flex: 1;
+  }
+}

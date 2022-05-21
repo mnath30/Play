@@ -11,3 +11,22 @@
   color: var(--secondary-btn);
   cursor: pointer;
 }
+
+.secondary__btn-icon {
+  color: var(--secondary-btn);
+  padding: 0.2rem;
+}
+
+.dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: var(--dark-grey);
+  margin: 0.4rem;
+}
+
+.card__thumbnail-img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}

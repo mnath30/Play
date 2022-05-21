@@ -1,9 +1,10 @@
 import "./video-card.css";
 import { useState } from "react";
 import { PopUpMenu } from "../PopUpMenu/PopUpMenu";
+import { Link } from "react-router-dom";
 
 const VideoCard = ({ videoDetails }) => {
-  const { title, creator, views, thumbnail, img } = videoDetails;
+  const { title, creator, views, thumbnail, img, _id } = videoDetails;
   const [showMenu, setShowMenu] = useState(false);
   const titleNew = title.length > 36 ? title.slice(0, 33) + "..." : title;
   const creatorNew =
@@ -15,14 +16,18 @@ const VideoCard = ({ videoDetails }) => {
   };
   return (
     <div className="flex-col card">
-      <div className="card__img">
-        <img src={img} alt={title} className="video-img" />
-      </div>
+      <Link to={`/explore/${_id}`}>
+        <div className="card__img">
+          <img src={img} alt={title} className="video-img" />
+        </div>
+      </Link>
       <div className="flex card__header">
         <img src={thumbnail} className="card__thumbnail-img" alt={title} />
-        <div title={title} className="card__header-title">
-          {titleNew}
-        </div>
+        <Link to={`/explore/${_id}`}>
+          <div title={title} className="card__header-title">
+            {titleNew}
+          </div>
+        </Link>
         <span
           className="card__header-btn"
           onBlur={(e) => handleChange(e, setShowMenu)}
