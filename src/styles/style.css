@@ -17,6 +17,13 @@
   padding: 0.2rem;
 }
 
+.active__btn {
+  background-color: var(--secondary-btn);
+  color: var(--white);
+}
+.btn-icon-active {
+  color: var(--white);
+}
 .dot {
   width: 0.4rem;
   height: 0.4rem;

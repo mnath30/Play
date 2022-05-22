@@ -4,6 +4,8 @@ const initialVideoState = {
   loader: false,
   error: null,
   history: [],
+  likedVideos: [],
+  watchLater: [],
 };
 
 export { initialVideoState };

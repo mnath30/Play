@@ -1,10 +1,10 @@
 export { Home } from "./Home/Home";
 export { VideoListing } from "./VideoListing/VideoListing";
-export { History } from "./History/History";
+export { History } from "./UserPages/History";
 export { WatchLater } from "./WatchLater";
 export { Login } from "./Authentication/Login";
 export { Signup } from "./Authentication/Signup";
-export { LikedVideos } from "./LikedVideos";
+export { LikedVideos } from "./UserPages/LikedVideos";
 export { Logout } from "./Authentication/Logout";
 export { PageNotFound } from "./PageNotFound/PageNotFound";
 export { SingleVideo } from "./SingleVideo/SingleVideo";

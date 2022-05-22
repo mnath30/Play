@@ -44,7 +44,22 @@
 }
 
 .secondary__btn,
-.history-btn {
+.remove-btn {
   padding: 0.2rem 0.4rem;
   margin-left: auto;
+  position: relative;
+}
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  background-color: var(--border-grey);
+  border-radius: 5px;
+  padding: 0.2rem;
+  width: 6rem;
+  left: 50%;
+}
+.remove-btn:hover .tooltip {
+  visibility: visible;
 }

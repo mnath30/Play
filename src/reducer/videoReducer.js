@@ -6,6 +6,7 @@ import {
   UPDATE_HISTORY,
   DELETE_HISTORY,
   LOGOUT,
+  UPDATE_LIKED,
 } from "../helper/constants";
 
 const videoReducer = (state, action) => {
@@ -40,6 +41,13 @@ const videoReducer = (state, action) => {
         error: null,
         history: [...action.payload],
       };
+    case UPDATE_LIKED:
+      return {
+        ...state,
+        loader: false,
+        error: null,
+        likedVideos: [...action.payload],
+      };
     case ERROR:
       return {
         ...state,
@@ -52,6 +60,7 @@ const videoReducer = (state, action) => {
         loader: false,
         error: null,
         history: [],
+        likedVideos: [],
       };
 
     default:
