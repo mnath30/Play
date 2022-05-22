@@ -15,6 +15,8 @@ const HorizontalCard = ({
     icon = <i className="fa-solid fa-xmark secondary__btn-icon"></i>;
   } else if (pageName === "liked") {
     icon = <i class="fa-regular fa-thumbs-down"></i>;
+  } else if (pageName === "watchlater") {
+    icon = <i class="fa-regular fa-trash-can"></i>;
   }
 
   return (

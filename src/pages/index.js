@@ -1,7 +1,7 @@
 export { Home } from "./Home/Home";
 export { VideoListing } from "./VideoListing/VideoListing";
 export { History } from "./UserPages/History";
-export { WatchLater } from "./WatchLater";
+export { WatchLater } from "./UserPages/WatchLater";
 export { Login } from "./Authentication/Login";
 export { Signup } from "./Authentication/Signup";
 export { LikedVideos } from "./UserPages/LikedVideos";
