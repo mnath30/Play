@@ -34,7 +34,7 @@ const WatchLater = () => {
       {!loader && watchLater.length !== 0 && (
         <div className="flex-col history__container">
           <div className=" flex history__header">
-            <h1 className="history__container-title">Watch History </h1>
+            <h1 className="history__container-title">Watch Later</h1>
           </div>
 
           {watchLater.map((item) => (
