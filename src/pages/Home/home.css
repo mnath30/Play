@@ -1,0 +1,9 @@
+@import url("../../styles/style.css");
+
+.home__container {
+  margin: 0.8rem;
+}
+.home__content {
+  flex-wrap: wrap;
+  justify-content: center;
+}

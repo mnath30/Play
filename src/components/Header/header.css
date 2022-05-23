@@ -1,0 +1,42 @@
+@import "../../styles/style.css";
+
+.header__container {
+  width: 100%;
+  height: 50vh;
+  margin: 0.8rem auto;
+  position: relative;
+  background: url("../../asset/banner.jpg") no-repeat center;
+  background-size: cover;
+}
+.layer {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: inherit;
+}
+.header__text {
+  position: relative;
+  top: 50%;
+  color: var(--white);
+  font-size: 1.2rem;
+}
+
+.header__btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 4px solid var(--white);
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.header__btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 830px) {
+  .banner__container {
+    height: 40vh;
+  }
+}
