@@ -1,0 +1,65 @@
+@import url("../../styles/style.css");
+
+.horiz__card {
+  width: 36rem;
+  height: 10rem;
+  margin: 0.8rem;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+.horiz__card:hover {
+  box-shadow: 10px 10px 5px var(--dark-grey);
+}
+.horiz__card-img {
+  width: 100%;
+  height: inherit;
+  flex: 2;
+}
+.card-img {
+  width: 100%;
+  height: 100%;
+}
+.horiz__card-details {
+  height: inherit;
+  flex: 3;
+  padding: 0.4rem 0.8rem;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+.horiz__card-title {
+  font-size: 1rem;
+  text-align: left;
+  padding: 0 0.4rem;
+  margin: 0;
+}
+
+.horiz__card-description {
+  padding: 0.4rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+.horiz__card-info {
+  padding: 0 0.4rem;
+  font-size: 0.8rem;
+}
+
+.secondary__btn,
+.remove-btn {
+  padding: 0.2rem 0.4rem;
+  margin-left: auto;
+  position: relative;
+}
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  background-color: var(--border-grey);
+  border-radius: 5px;
+  padding: 0.2rem;
+  width: 6rem;
+  left: 50%;
+}
+.remove-btn:hover .tooltip {
+  visibility: visible;
+}

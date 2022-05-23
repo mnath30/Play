@@ -8,6 +8,7 @@ import thumbnail_7 from "./thumbnail_7.jpg";
 import notFound_page from "./notFound_page.svg";
 import error_page from "./error_page.svg";
 import banner from "./banner.jpg";
+import empty_page from "./empty_page.svg";
 
 export {
   thumbnail_1,
@@ -20,4 +21,5 @@ export {
   notFound_page,
   error_page,
   banner,
+  empty_page,
 };

@@ -4,12 +4,12 @@
   max-width: 16rem;
   border-radius: 5px;
   margin: 0.8rem;
-  cursor: pointer;
 }
 .card__img {
   width: 16rem;
   height: 10rem;
   border-radius: 5px;
+  cursor: pointer;
 }
 .video-img {
   width: 100%;
@@ -20,15 +20,11 @@
   margin: 0.4rem;
 }
 
-.card__thumbnail-img {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-}
 .card__header-title {
   margin: 0.2rem 0.4rem;
   text-align: left;
   font-size: 0.9rem;
+  cursor: pointer;
 }
 .card__header-btn {
   margin-left: auto;
@@ -49,13 +45,6 @@
   font-size: 0.8rem;
   align-items: center;
   justify-content: center;
-}
-.dot {
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background-color: var(--dark-grey);
-  margin: 0.4rem;
 }
 
 @media only screen and (max-width: 940px) {
