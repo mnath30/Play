@@ -5,3 +5,4 @@ export { Loader } from "./Loader/Loader";
 export { VideoCard } from "./VideoCard/VideoCard";
 export { PopUpMenu } from "./PopUpMenu/PopUpMenu";
 export { Error } from "./Error/Error";
+export { Header } from "./Header/Header";
