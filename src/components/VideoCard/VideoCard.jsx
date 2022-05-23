@@ -1,11 +1,18 @@
 import "./video-card.css";
 import { useState } from "react";
 import { PopUpMenu } from "../PopUpMenu/PopUpMenu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { addToWatchLater, removeFromWatchLater } from "../../services";
+import { useVideos, useAuth } from "../../context";
 
 const VideoCard = ({ videoDetails }) => {
   const { title, creator, views, thumbnail, img, _id } = videoDetails;
   const [showMenu, setShowMenu] = useState(false);
+  const { authState } = useAuth();
+  const { encodedToken } = authState;
+  const navigate = useNavigate();
+  const { videoState, videoDispatch } = useVideos();
+  const { watchLater } = videoState;
   const titleNew = title.length > 36 ? title.slice(0, 33) + "..." : title;
   const creatorNew =
     creator.length > 16 ? creator.slice(0, 15) + "..." : creator;
@@ -14,6 +21,30 @@ const VideoCard = ({ videoDetails }) => {
       setShowMenu(false);
     }
   };
+  let isAddedToWatchLater = false;
+
+  if (watchLater.length !== 0 && encodedToken) {
+    isAddedToWatchLater = watchLater.some((item) => item._id === _id);
+  }
+  const handleWatchLater = (videoId) => {
+    if (encodedToken) {
+      isAddedToWatchLater
+        ? removeFromWatchLater(
+            `/api/user/watchlater/${videoId}`,
+            encodedToken,
+            videoDispatch
+          )
+        : addToWatchLater(
+            `/api/user/watchlater`,
+            encodedToken,
+            videoDetails,
+            videoDispatch
+          );
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="flex-col card">
       <Link to={`/explore/${_id}`}>
@@ -34,7 +65,13 @@ const VideoCard = ({ videoDetails }) => {
         >
           <button onClick={() => setShowMenu((show) => !show)}>
             <i className="fa-solid fa-ellipsis-vertical fa-xl"></i>
-            {showMenu && <PopUpMenu />}
+            {showMenu && (
+              <PopUpMenu
+                watchLaterHandler={handleWatchLater}
+                videoId={_id}
+                inWatchLater={isAddedToWatchLater}
+              />
+            )}
           </button>
         </span>
       </div>

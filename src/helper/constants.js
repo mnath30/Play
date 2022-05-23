@@ -7,3 +7,5 @@ export const ERROR = "ERROR";
 export const DISPLAY_VIDEO = "DISPLAY_VIDEO";
 export const UPDATE_HISTORY = "UPDATE_HISTORY";
 export const DELETE_HISTORY = "DELETE_HISTORY";
+export const UPDATE_LIKED = "UPDATE_LIKED";
+export const UPDATE_WATCH_LATER = "UPDATE_WATCH_LATER";

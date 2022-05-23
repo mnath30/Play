@@ -1,30 +1,32 @@
 import "./single-video.css";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router-dom";
-import { useVideos } from "../../context";
+import { useNavigate, useParams } from "react-router-dom";
+import { useVideos, useAuth } from "../../context";
 import { Loader, Error, VideoCard } from "../../components";
 import { useEffect } from "react";
-import { singleVideoService, addToHistory } from "../../services";
+import {
+  singleVideoService,
+  addToHistory,
+  addToLiked,
+  deleteFromLiked,
+} from "../../services";
 import { findSuggestedVideos } from "../../helper";
-import { useAuth } from "../../context";
 
 const SingleVideo = () => {
   const { authState } = useAuth();
   const { encodedToken, isLoggedIn } = authState;
   const { videoId } = useParams();
+  const navigate = useNavigate();
   const { videoState, videoDispatch } = useVideos();
-  const { allVideos, currentVideo, error, loader } = videoState;
+  const { allVideos, currentVideo, error, loader, likedVideos } = videoState;
+  const { url, title, description, creator, views, thumbnail } = currentVideo;
+  let suggestedVideos = [];
+  let isInLiked = false;
+
   useEffect(() => {
     singleVideoService(`/api/video/${videoId}`, videoDispatch);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId]);
-
-  const { url, title, description, creator, views, thumbnail } = currentVideo;
-
-  let suggestedVideos = [];
-  if (allVideos.length !== 0) {
-    suggestedVideos = findSuggestedVideos(allVideos, videoId);
-  }
 
   useEffect(() => {
     if (Object.keys(currentVideo).length !== 0 && isLoggedIn) {
@@ -40,6 +42,33 @@ const SingleVideo = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [videoId, currentVideo]);
 
+  if (allVideos.length !== 0) {
+    suggestedVideos = findSuggestedVideos(allVideos, videoId);
+  }
+
+  if (likedVideos.length !== 0 && encodedToken) {
+    isInLiked = likedVideos.some((item) => item._id === currentVideo._id);
+  }
+
+  const likeHandler = () => {
+    if (encodedToken) {
+      isInLiked
+        ? deleteFromLiked(
+            `/api/user/likes/${currentVideo._id}`,
+            encodedToken,
+            videoDispatch
+          )
+        : addToLiked(
+            "/api/user/likes",
+            encodedToken,
+            currentVideo,
+            videoDispatch
+          );
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <>
       {loader && <Loader />}
@@ -53,10 +82,20 @@ const SingleVideo = () => {
             <h2 className="single-video__title">{title}</h2>
             <div className="flex single-video__info">
               <span>{views} views</span>
-              <button className="secondary__btn">
-                <i className="fa-regular fa-thumbs-up fa-lg secondary__btn-icon"></i>
-                Like
-              </button>
+              {isInLiked ? (
+                <button
+                  className="secondary__btn active__btn"
+                  onClick={likeHandler}
+                >
+                  <i className="fa-regular fa-thumbs-up fa-lg secondary__btn-icon btn-icon-active"></i>
+                  Liked
+                </button>
+              ) : (
+                <button className="secondary__btn" onClick={likeHandler}>
+                  <i className="fa-regular fa-thumbs-up fa-lg secondary__btn-icon"></i>
+                  Like
+                </button>
+              )}
               <button className="secondary__btn">
                 <i className="fa-solid fa-file-circle-plus secondary__btn-icon"></i>
                 Save

@@ -2,7 +2,7 @@ import { useVideos } from "../../context";
 import { getHistory, deleteHistory } from "../../services";
 import { useAuth } from "../../context";
 import { Loader, HorizontalCard, Empty } from "../../components";
-import "./history.css";
+import "./user-pages.css";
 import { useEffect } from "react";
 
 const History = () => {
@@ -51,6 +51,8 @@ const History = () => {
               key={item._id}
               cardItem={item}
               removeItemClickHandler={removeItem}
+              pageName="history"
+              message="Remove from History"
             />
           ))}
         </div>
