@@ -8,3 +8,11 @@ export {
   addToWatchLater,
   removeFromWatchLater,
 } from "./watchLaterService";
+export {
+  addNewPlaylist,
+  removePlaylist,
+  getAllPlaylists,
+  addVideoToPlaylist,
+  removeVideoFromPlaylist,
+  getVideosFromPlaylist,
+} from "./playlistService";

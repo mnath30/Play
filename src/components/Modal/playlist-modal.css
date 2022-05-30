@@ -1,0 +1,44 @@
+@import url("../../styles/style.css");
+
+.modal__container {
+  position: fixed;
+  top: 36%;
+  z-index: 3;
+  width: clamp(14rem, 16rem, 18rem);
+  left: calc(50% - 9rem);
+  background-color: var(--white);
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+}
+.modal__heading {
+  padding: 0.4rem;
+  margin: 0;
+  display: inline-block;
+}
+.modal__close {
+  text-align: right;
+  margin-left: auto;
+}
+.video_section {
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  text-align: left;
+  max-height: 10rem;
+  margin: 0.8rem 0.4rem;
+  overscroll-behavior: contain;
+}
+.secondary__btn-icon {
+  cursor: pointer;
+}
+.modal__label {
+  text-align: left;
+  font-size: 0.8rem;
+}
+.modal__footer {
+  align-items: center;
+  justify-content: space-between;
+}
+.modal__input {
+  width: 100%;
+  margin: 0.2rem 0.2rem 0.2rem 0;
+}

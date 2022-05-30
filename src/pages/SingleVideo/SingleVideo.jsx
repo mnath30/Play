@@ -1,7 +1,7 @@
 import "./single-video.css";
 import ReactPlayer from "react-player";
 import { useNavigate, useParams } from "react-router-dom";
-import { useVideos, useAuth } from "../../context";
+import { useVideos, useAuth, useModal } from "../../context";
 import { Loader, Error, VideoCard } from "../../components";
 import { useEffect } from "react";
 import {
@@ -20,6 +20,7 @@ const SingleVideo = () => {
   const { videoState, videoDispatch } = useVideos();
   const { allVideos, currentVideo, error, loader, likedVideos } = videoState;
   const { url, title, description, creator, views, thumbnail } = currentVideo;
+  const { showPlaylist } = useModal();
   let suggestedVideos = [];
   let isInLiked = false;
 
@@ -45,6 +46,14 @@ const SingleVideo = () => {
   if (allVideos.length !== 0) {
     suggestedVideos = findSuggestedVideos(allVideos, videoId);
   }
+
+  const playlistHandler = () => {
+    if (encodedToken) {
+      showPlaylist(currentVideo);
+    } else {
+      navigate("/login");
+    }
+  };
 
   if (likedVideos.length !== 0 && encodedToken) {
     isInLiked = likedVideos.some((item) => item._id === currentVideo._id);
@@ -96,7 +105,7 @@ const SingleVideo = () => {
                   Like
                 </button>
               )}
-              <button className="secondary__btn">
+              <button className="secondary__btn" onClick={playlistHandler}>
                 <i className="fa-solid fa-file-circle-plus secondary__btn-icon"></i>
                 Save
               </button>

@@ -30,6 +30,6 @@
 }
 
 /* Horizontal line */
-hr {
+.hr {
   border: 1px solid var(--border-grey);
 }

@@ -16,8 +16,8 @@ const Login = () => {
   const [errormsg, setErrorMsg] = useState("");
   const testCredentials = (e) => {
     e.preventDefault();
-    setEmail("adarshbalika@gmail.com");
-    setPassword("adarshBalika123");
+    setEmail("maitreyeenath@gmail.com");
+    setPassword("mait123");
   };
   const handleSubmit = async (e) => {
     e.preventDefault();

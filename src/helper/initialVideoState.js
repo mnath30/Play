@@ -6,6 +6,8 @@ const initialVideoState = {
   history: [],
   likedVideos: [],
   watchLater: [],
+  playlists: [],
+  currentPlaylist: {},
 };
 
 export { initialVideoState };

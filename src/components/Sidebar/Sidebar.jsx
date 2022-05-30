@@ -52,6 +52,16 @@ const Sidebar = () => {
           <div>Liked Videos</div>
         </div>
       </NavLink>
+
+      <NavLink
+        to="/myplaylists"
+        className={`({ isActive }) => (isActive ? "active" : "") sidebar-icon`}
+      >
+        <div>
+          <i className="fa-solid fa-list-ul fa-lg"></i>
+          <div>My Playlists</div>
+        </div>
+      </NavLink>
     </div>
   );
 };

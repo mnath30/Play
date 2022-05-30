@@ -37,3 +37,13 @@
   height: 3rem;
   border-radius: 50%;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar);
+  border-radius: 10px;
+}

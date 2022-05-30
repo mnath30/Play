@@ -25,7 +25,9 @@ const Home = () => {
         <h3>Trending Videos</h3>
         <div className="home__content flex">
           {trendingVideos.length !== 0 &&
-            trendingVideos.map((item) => <VideoCard videoDetails={item} />)}
+            trendingVideos.map((item) => (
+              <VideoCard videoDetails={item} key={item._id} />
+            ))}
         </div>
       </div>
     </>
