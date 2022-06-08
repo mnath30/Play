@@ -14,6 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errormsg, setErrorMsg] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const testCredentials = (e) => {
     e.preventDefault();
     setEmail("maitreyeenath@gmail.com");
@@ -71,19 +72,30 @@ const Login = () => {
             <label htmlFor="password" className="form-label">
               Password
             </label>
-            <input
-              className="form-input padding-sm"
-              type="password"
-              placeholder="Enter your password"
-              id="password"
-              required
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-                setErrorMsg("");
-              }}
-            />
-
+            <div className="form-input password-container">
+              <input
+                className=" padding-sm password-input"
+                type={`${showPassword ? "text" : "password"}`}
+                placeholder="Enter your password"
+                id="password"
+                required
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  setErrorMsg("");
+                }}
+              />
+              <button
+                onClick={() => setShowPassword((show) => !show)}
+                className="password-btn"
+              >
+                {showPassword ? (
+                  <i className="fa-solid fa-eye-slash"></i>
+                ) : (
+                  <i className="fa-solid fa-eye"></i>
+                )}
+              </button>
+            </div>
             <button className="form-btn padding-sm" onClick={handleSubmit}>
               Login
             </button>

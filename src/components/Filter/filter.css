@@ -1,0 +1,23 @@
+.filter_container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.4rem 0.4rem;
+  padding: 0.4rem;
+  justify-content: center;
+}
+.filter_chips {
+  border-radius: 25px;
+  margin: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  min-width: 4rem;
+  border: none;
+  background-color: var(--light-grey);
+  border: 1px solid var(--dark-grey);
+  cursor: pointer;
+}
+
+.active-chips {
+  background-color: var(--active-filter-color);
+  color: var(--white);
+  border: 1px solid var(--active-filter-color);
+}

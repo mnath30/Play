@@ -12,3 +12,4 @@ export { Empty } from "./Error/Empty";
 export { PlaylistModal } from "./Modal/PlaylistModal";
 export { AddToPlaylistModal } from "./Modal/AddToPlaylistModal";
 export { OverlayBackground } from "./OverlayBackground/OverlayBackground";
+export { Filter } from "./Filter/Filter";

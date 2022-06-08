@@ -12,6 +12,7 @@ import {
   SingleVideo,
   Playlists,
   SinglePlaylist,
+  SearchResult,
 } from "../pages";
 import { RequiresAuth } from "../helper";
 import Mockman from "mockman-js";
@@ -65,6 +66,7 @@ const Router = () => {
       <Route path="/logout" element={<Logout />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/searchresults" element={<SearchResult />} />
       <Route path="/mock" element={<Mockman />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>

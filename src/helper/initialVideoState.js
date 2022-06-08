@@ -8,6 +8,8 @@ const initialVideoState = {
   watchLater: [],
   playlists: [],
   currentPlaylist: {},
+  filter: "all",
+  search: "",
 };
 
 export { initialVideoState };

@@ -1,10 +1,22 @@
 import "./navigation.css";
-import { Link } from "react-router-dom";
-import { useAuth } from "../../context";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth, useVideos } from "../../context";
+import { useState } from "react";
+import { APPLY_SEARCH } from "../../helper/constants";
 
 const Navigation = ({ setShowMobileNav }) => {
   const { authState } = useAuth();
   const { isLoggedIn } = authState;
+  const { videoDispatch } = useVideos();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const searchHandler = () => {
+    videoDispatch({ type: APPLY_SEARCH, payload: searchQuery });
+    navigate("/searchresults");
+    setSearchQuery("");
+  };
+
   return (
     <nav className="flex nav">
       <span
@@ -22,10 +34,12 @@ const Navigation = ({ setShowMobileNav }) => {
       <span className="padding-sm nav__search flex">
         <input
           type="text"
-          placeholder="Search by title or categories..."
+          placeholder="Search by title or creator name..."
           className="nav__search--input"
+          onChange={(e) => setSearchQuery(e.target.value)}
+          value={searchQuery}
         />
-        <button className="nav__search--btn">
+        <button className="nav__search--btn" onClick={searchHandler}>
           <i className="fa-solid fa-magnifying-glass fa-xl"></i>
         </button>
       </span>
