@@ -3,7 +3,8 @@ import { useState } from "react";
 import { PopUpMenu } from "../PopUpMenu/PopUpMenu";
 import { Link, useNavigate } from "react-router-dom";
 import { addToWatchLater, removeFromWatchLater } from "../../services";
-import { useVideos, useAuth } from "../../context";
+import { useVideos, useAuth, useModal } from "../../context";
+import { AddToPlaylistModal } from "../Modal/AddToPlaylistModal";
 
 const VideoCard = ({ videoDetails }) => {
   const { title, creator, views, thumbnail, img, _id } = videoDetails;
@@ -13,9 +14,12 @@ const VideoCard = ({ videoDetails }) => {
   const navigate = useNavigate();
   const { videoState, videoDispatch } = useVideos();
   const { watchLater } = videoState;
+  const { openPlaylist, showPlaylist, hidePlaylist } = useModal();
+  const { displayPlaylist, videoContent } = openPlaylist;
   const titleNew = title.length > 36 ? title.slice(0, 33) + "..." : title;
   const creatorNew =
     creator.length > 16 ? creator.slice(0, 15) + "..." : creator;
+
   const handleChange = (e, setShowMenu) => {
     if (!e.currentTarget.contains(e.relatedTarget)) {
       setShowMenu(false);
@@ -26,6 +30,7 @@ const VideoCard = ({ videoDetails }) => {
   if (watchLater.length !== 0 && encodedToken) {
     isAddedToWatchLater = watchLater.some((item) => item._id === _id);
   }
+
   const handleWatchLater = (videoId) => {
     if (encodedToken) {
       isAddedToWatchLater
@@ -70,6 +75,7 @@ const VideoCard = ({ videoDetails }) => {
                 watchLaterHandler={handleWatchLater}
                 videoId={_id}
                 inWatchLater={isAddedToWatchLater}
+                videoContent={videoDetails}
               />
             )}
           </button>
@@ -82,6 +88,13 @@ const VideoCard = ({ videoDetails }) => {
         <span className="dot"></span>
         <span>{views} views</span>
       </div>
+      {displayPlaylist && (
+        <AddToPlaylistModal
+          displayPlaylist={showPlaylist}
+          closePlaylist={hidePlaylist}
+          videoData={videoContent}
+        />
+      )}
     </div>
   );
 };

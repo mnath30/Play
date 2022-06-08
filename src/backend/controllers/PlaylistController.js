@@ -46,7 +46,7 @@ export const addNewPlaylistHandler = function (schema, request) {
   const user = requiresAuth.call(this, request);
   if (user) {
     const { playlist } = JSON.parse(request.requestBody);
-    user.playlists.push({ ...playlist, videos: [], _id: uuid() });
+    user.playlists.unshift({ ...playlist, videos: [], _id: uuid() });
     return new Response(201, {}, { playlists: user.playlists });
   }
   return new Response(
@@ -111,7 +111,7 @@ export const addVideoToPlaylistHandler = function (schema, request) {
     const playlistId = request.params.playlistId;
     const { video } = JSON.parse(request.requestBody);
     const playlist = user.playlists.find((item) => item._id === playlistId);
-    if (playlist.videos.some((item) => item.id === video.id)) {
+    if (playlist.videos.some((item) => item._id === video._id)) {
       return new Response(
         409,
         {},
@@ -120,7 +120,7 @@ export const addVideoToPlaylistHandler = function (schema, request) {
         }
       );
     }
-    playlist.videos.push(video);
+    playlist.videos.unshift(video);
     return new Response(201, {}, { playlist });
   }
   return new Response(

@@ -8,3 +8,5 @@ export { LikedVideos } from "./UserPages/LikedVideos";
 export { Logout } from "./Authentication/Logout";
 export { PageNotFound } from "./PageNotFound/PageNotFound";
 export { SingleVideo } from "./SingleVideo/SingleVideo";
+export { Playlists } from "./UserPages/Playlists";
+export { SinglePlaylist } from "./UserPages/SinglePlaylist";

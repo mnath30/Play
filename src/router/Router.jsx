@@ -10,6 +10,8 @@ import {
   Logout,
   PageNotFound,
   SingleVideo,
+  Playlists,
+  SinglePlaylist,
 } from "../pages";
 import { RequiresAuth } from "../helper";
 import Mockman from "mockman-js";
@@ -41,6 +43,22 @@ const Router = () => {
         element={
           <RequiresAuth>
             <WatchLater />
+          </RequiresAuth>
+        }
+      />
+      <Route
+        path="/myplaylists"
+        element={
+          <RequiresAuth>
+            <Playlists />
+          </RequiresAuth>
+        }
+      />
+      <Route
+        path="/myplaylists/:playlistId"
+        element={
+          <RequiresAuth>
+            <SinglePlaylist />
           </RequiresAuth>
         }
       />

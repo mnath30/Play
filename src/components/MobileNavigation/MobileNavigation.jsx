@@ -67,6 +67,16 @@ const MobileNavigation = ({ setShowMobileNav }) => {
             <span className="mobile-nav__options">Liked Videos</span>
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/myplaylists"
+            className={`({ isActive }) => (isActive ? "active" : "") mobile-nav__sidebar-item`}
+            onClick={closeMenu}
+          >
+            <i className="fa-solid fa-list-ul fa-lg mobile-nav__icons"></i>
+            <span className="mobile-nav__options">My Playlists</span>
+          </NavLink>
+        </li>
       </ul>
     </div>
   );

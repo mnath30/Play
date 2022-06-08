@@ -7,7 +7,8 @@
   box-sizing: border-box;
   justify-content: flex-start;
 }
-.horiz__card:hover {
+.horiz__card:hover,
+.playlist__card:hover {
   box-shadow: 10px 10px 5px var(--dark-grey);
 }
 .horiz__card-img {
@@ -31,6 +32,7 @@
   text-align: left;
   padding: 0 0.4rem;
   margin: 0;
+  overflow-wrap: anywhere;
 }
 
 .horiz__card-description {
@@ -48,6 +50,7 @@
   padding: 0.2rem 0.4rem;
   margin-left: auto;
   position: relative;
+  height: fit-content;
 }
 .tooltip {
   visibility: hidden;
@@ -62,4 +65,12 @@
 }
 .remove-btn:hover .tooltip {
   visibility: visible;
+}
+
+.playlist__card {
+  width: 36rem;
+  margin: 0.8rem;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  border: 2px solid var(--border-grey);
 }
