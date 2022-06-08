@@ -64,7 +64,7 @@ const AddToPlaylistModal = ({ displayPlaylist, closePlaylist, videoData }) => {
             {playlists.length !== 0 &&
               playlists.map((item) => (
                 <li key={item._id}>
-                  <label htmlFor={item._id}>
+                  <label htmlFor={item._id} className="video_section-list">
                     <input
                       type="checkbox"
                       id={item._id}
