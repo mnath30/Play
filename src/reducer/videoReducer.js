@@ -10,7 +10,10 @@ import {
   UPDATE_WATCH_LATER,
   UPDATE_ALL_PLAYLISTS,
   UPDATE_CURRENT_PLAYLIST,
+  APPLY_FILTER,
+  APPLY_SEARCH,
 } from "../helper/constants";
+import { initialVideoState } from "../helper/";
 
 const videoReducer = (state, action) => {
   switch (action.type) {
@@ -72,6 +75,10 @@ const videoReducer = (state, action) => {
         error: null,
         currentPlaylist: { ...action.payload },
       };
+    case APPLY_FILTER:
+      return { ...state, filter: action.payload.toLowerCase() };
+    case APPLY_SEARCH:
+      return { ...state, search: action.payload };
     case ERROR:
       return {
         ...state,
@@ -79,16 +86,7 @@ const videoReducer = (state, action) => {
         error: action.payload,
       };
     case LOGOUT:
-      return {
-        ...state,
-        loader: false,
-        error: null,
-        history: [],
-        likedVideos: [],
-        watchLater: [],
-        playlists: [],
-        currentPlaylist: [],
-      };
+      return initialVideoState;
 
     default:
       return { ...state };

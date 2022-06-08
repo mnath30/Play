@@ -31,6 +31,12 @@
   width: 100%;
   border-radius: 5px;
   margin: 0 0 0.8rem 0;
+  outline: none;
+}
+.password-input {
+  width: 100%;
+  border: none;
+  outline: none;
 }
 
 .txt-input:focus {
@@ -72,6 +78,12 @@
   opacity: 0.8;
   color: var(--white);
 }
+.password-btn {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  margin: 0.2rem;
+}
 
 /* Link */
 .form-link {
@@ -85,4 +97,10 @@
 /* Form footer */
 .form__container-footer {
   justify-content: center;
+}
+
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

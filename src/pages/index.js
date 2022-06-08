@@ -10,3 +10,4 @@ export { PageNotFound } from "./PageNotFound/PageNotFound";
 export { SingleVideo } from "./SingleVideo/SingleVideo";
 export { Playlists } from "./UserPages/Playlists";
 export { SinglePlaylist } from "./UserPages/SinglePlaylist";
+export { SearchResult } from "./VideoListing/SearchResult";
