@@ -74,3 +74,22 @@
   justify-content: flex-start;
   border: 2px solid var(--border-grey);
 }
+
+@media only screen and (max-width: 550px) {
+  .horiz__card {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    justify-content: flex-start;
+  }
+  .card-img {
+    height: 100%;
+  }
+  .horiz__card-title {
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+  }
+  .horiz__card-description {
+    display: none;
+  }
+}

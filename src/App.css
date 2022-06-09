@@ -60,5 +60,6 @@
   }
   .container__main {
     margin: 0.8rem;
+    width: 100%;
   }
 }

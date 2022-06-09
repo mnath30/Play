@@ -78,7 +78,7 @@ const videoReducer = (state, action) => {
     case APPLY_FILTER:
       return { ...state, filter: action.payload.toLowerCase() };
     case APPLY_SEARCH:
-      return { ...state, search: action.payload };
+      return { ...state, search: action.payload.toLowerCase() };
     case ERROR:
       return {
         ...state,
