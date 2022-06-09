@@ -92,4 +92,11 @@
   .horiz__card-description {
     display: none;
   }
+  .playlist__card {
+    width: 100%;
+  }
+  .horiz__card-info {
+    text-align: left;
+    margin-top: 0.4rem;
+  }
 }
