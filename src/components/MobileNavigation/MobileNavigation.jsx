@@ -1,5 +1,5 @@
 import "./mobile-navigation.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const MobileNavigation = ({ setShowMobileNav }) => {
   const closeMenu = () => {
@@ -14,7 +14,13 @@ const MobileNavigation = ({ setShowMobileNav }) => {
         <span className="mobile-nav__logo padding-sm">
           <img src="../../favicon.ico" className="img-logo" alt="logo" />
         </span>
-        <h3 className="mobile-nav__brand">Play</h3>
+        <Link
+          to="/"
+          className={`({ isActive }) => (isActive ? "active" : "")`}
+          onClick={closeMenu}
+        >
+          <h3 className="mobile-nav__brand">Play</h3>
+        </Link>
       </div>
       <ul>
         <li>

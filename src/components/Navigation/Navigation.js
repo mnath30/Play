@@ -30,7 +30,9 @@ const Navigation = ({ setShowMobileNav }) => {
       <span className="nav__logo padding-sm">
         <img src="../../favicon.ico" className="img-logo" alt="logo" />
       </span>
-      <h3 className="nav__brand">Play</h3>
+      <Link to="/">
+        <h3 className="nav__brand">Play</h3>
+      </Link>
       <span className="padding-sm nav__search flex">
         <input
           type="text"
