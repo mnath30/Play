@@ -36,6 +36,7 @@
 .password-input {
   width: 100%;
   border: none;
+  border-radius: 5px;
   outline: none;
 }
 
@@ -103,4 +104,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.error-txt {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--secondary-color);
 }

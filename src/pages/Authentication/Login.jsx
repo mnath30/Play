@@ -5,6 +5,7 @@ import { login } from "../../services";
 import { useAuth } from "../../context";
 import { LOADING, LOGIN, ERROR } from "../../helper/constants";
 import { Loader } from "../../components";
+import { emailValidation, passwordValidation } from "../../helper";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,30 +21,39 @@ const Login = () => {
     setEmail("maitreyeenath@gmail.com");
     setPassword("mait123");
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (email && password) {
-      authDispatch({ type: LOADING });
-      const responseData = await login({
-        email: email,
-        password: password,
-      });
-      const { token, username, error } = responseData;
-      if (error) {
-        authDispatch({
-          type: ERROR,
-        });
-        setErrorMsg(error);
+      if (!emailValidation(email)) {
+        setErrorMsg("Enter valid Email");
+      } else if (!passwordValidation(password)) {
+        setErrorMsg("Password cannot be less than 6 characters");
       } else {
-        authDispatch({
-          type: LOGIN,
-          token: token,
-          user: username,
+        authDispatch({ type: LOADING });
+        const responseData = await login({
+          email: email,
+          password: password,
         });
-        localStorage.setItem("encodedToken", token);
-        localStorage.setItem("user", username);
-        navigate(location.state?.from?.pathname || "/", { replace: true });
+        const { token, username, error } = responseData;
+        if (error) {
+          authDispatch({
+            type: ERROR,
+          });
+          setErrorMsg(error);
+        } else {
+          authDispatch({
+            type: LOGIN,
+            token: token,
+            user: username,
+          });
+          localStorage.setItem("encodedToken", token);
+          localStorage.setItem("user", username);
+          navigate(location.state?.from?.pathname || "/", { replace: true });
+        }
       }
+    } else {
+      setErrorMsg("Fill all the fields");
     }
   };
   return (
@@ -90,9 +100,9 @@ const Login = () => {
                 className="password-btn"
               >
                 {showPassword ? (
-                  <i className="fa-solid fa-eye-slash"></i>
-                ) : (
                   <i className="fa-solid fa-eye"></i>
+                ) : (
+                  <i className="fa-solid fa-eye-slash"></i>
                 )}
               </button>
             </div>
@@ -101,9 +111,11 @@ const Login = () => {
             </button>
             <button
               className="form-btn btn-first padding-sm"
-              onClick={testCredentials}
+              onClick={(e) => {
+                testCredentials(e);
+              }}
             >
-              Login using test credentials
+              Fill test credentials
             </button>
             <p>
               <Link className="form-link" to="/signup">
@@ -111,7 +123,7 @@ const Login = () => {
               </Link>
             </p>
           </form>
-          {error && <p>{errormsg}</p>}
+          {(errormsg || error) && <p className="error-txt">{errormsg}</p>}
         </div>
       )}
     </>

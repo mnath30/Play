@@ -5,6 +5,7 @@ import { signup } from "../../services";
 import { useAuth } from "../../context";
 import { LOADING, SIGNUP, ERROR } from "../../helper/constants";
 import { Loader } from "../../components";
+import { emailValidation, passwordValidation } from "../../helper";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -22,25 +23,33 @@ const Signup = () => {
       const userNamearr = userName.split(" ");
       const firstName = userNamearr[0];
       const lastName = userNamearr.slice(1).join(" ") || "";
-      authDispatch({ type: LOADING });
-      const responseData = await signup({
-        email: email,
-        password: password,
-        firstName: firstName,
-        lastName: lastName,
-      });
-      const { error } = responseData;
-      if (error) {
-        authDispatch({
-          type: ERROR,
-        });
-        setErrorMsg(error);
+      if (!emailValidation(email)) {
+        setErrorMsg("Enter valid Email");
+      } else if (!passwordValidation(password)) {
+        setErrorMsg("Password cannot be less than 6 characters");
       } else {
-        authDispatch({
-          type: SIGNUP,
+        authDispatch({ type: LOADING });
+        const responseData = await signup({
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
         });
-        navigate("/login", { replace: true });
+        const { error } = responseData;
+        if (error) {
+          authDispatch({
+            type: ERROR,
+          });
+          setErrorMsg(error);
+        } else {
+          authDispatch({
+            type: SIGNUP,
+          });
+          navigate("/login", { replace: true });
+        }
       }
+    } else {
+      setErrorMsg("Fill all the fields");
     }
   };
 
@@ -105,9 +114,9 @@ const Signup = () => {
                 className="password-btn"
               >
                 {showPassword ? (
-                  <i className="fa-solid fa-eye-slash"></i>
-                ) : (
                   <i className="fa-solid fa-eye"></i>
+                ) : (
+                  <i className="fa-solid fa-eye-slash"></i>
                 )}
               </button>
             </div>
@@ -124,7 +133,7 @@ const Signup = () => {
               </span>
             </p>
           </form>
-          {error && <p>{errormsg}</p>}
+          {(error || errormsg) && <p className="error-txt">{errormsg}</p>}
         </div>
       )}
     </>
